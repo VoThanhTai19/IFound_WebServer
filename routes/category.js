@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const categoryController = require('../components/controllers/CategoryContoller')
+const productController = require('../components/controllers/ProductController')
 
 router.get('/insert', function (req, res, next) {
     res.render('category_insert')
@@ -26,6 +27,11 @@ router.delete('/:id', async function (req, res, next) {
     await categoryController.delete({_id: req.params.id})
     res.redirect('back')
 })
+
+router.get('/:id/get-products', async function (req, res, next) {
+    const getProducts = await productController.getProductsByCategoryId(req.params.id);
+    res.render('products_by_category', {getProducts})
+}) 
 
 router.get('/', async function (req, res) {
     const categories = await categoryController.getCategories();

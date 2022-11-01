@@ -10,6 +10,11 @@ exports.getProductById = async (id) => {
     return product;
 }
 
+exports.getProductsByCategoryId = async (categoryId) => {
+    const products = await productModel.find({category_id: categoryId}).populate('category_id');
+    return products
+}
+
 exports.insert = async (body) => {
     const product = productModel({
         name: body.product_name,

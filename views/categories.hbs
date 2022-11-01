@@ -33,7 +33,7 @@
         <th scope="col">Action</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody> 
         {{#each category}}
             <tr>
                 <th scope="row">{{@index}}</th>
@@ -42,6 +42,7 @@
                 <td>
                     <a href="/categories/{{this._id}}/edit" class="btn btn-link">Sửa</a>
                     <a href="#" class="btn btn-link" data-id="{{this._id}}" data-toggle="modal" data-target="#deleteModel">Xóa</a>
+                    <a href="/categories/{{this._id}}/get-products" class="btn btn-link">Xem sản phẩm</a>
                 </td>
             </tr>
         {{/each}}
