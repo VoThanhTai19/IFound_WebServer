@@ -18,9 +18,12 @@ exports.getProductsByCategoryId = async (categoryId) => {
 exports.insert = async (body) => {
     const product = productModel({
         name: body.product_name,
+        quantity: body.product_quantity,
         price: body.product_price,
         image: body.product_image,
         category_id: body.category_id,
+        status: body.product_status,
+        description: body.product_desc
     });
     await product.save();
 }
@@ -28,12 +31,20 @@ exports.insert = async (body) => {
 exports.update = async (id, body) => {
     await productModel.updateOne(id, {
         name: body.product_name,
+        quantity: body.product_quantity,
         price: body.product_price,
         image: body.product_image,
         category_id: body.category_id,
+        status: body.product_status,
+        description: body.product_desc
     });
 }
 
 exports.delete = async (id) => {
     await productModel.deleteOne(id);
+}
+
+exports.searchProduct = async (name) => {
+    const product = productModel.find({name: name}).populate('category_id')
+    return product
 }

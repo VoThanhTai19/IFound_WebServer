@@ -22,16 +22,19 @@
     </div>
 </nav>
 
-<a class="btn btn-primary mt-4 ml-4" href="/categories" role="button">Back</a>
+<a class="btn btn-primary mt-4 ml-4" href="/categories" role="button">Quay lại</a>
 
 <table class="table table-light mt-2">
     <thead>
         <tr> 
             <th scope="col">#</th>
             <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Số lượng</th>
             <th scope="col">Hình ảnh</th>
             <th scope="col">Giá</th>
             <th scope="col">Loại sản phẩm</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Mô tả</th>
         </tr>
     </thead>
     <tbody>
@@ -39,30 +42,13 @@
             <tr>
                 <th scope="row">{{@index}}</th>
                 <td>{{this.name}}</td>
+                <td>{{this.quantity}}</td>
                 <td>{{this.image}}</td>
                 <td>{{this.price}}</td>
                 <td>{{this.category_id.name}}</td>
+                <td>{{this.status}}</td>
+                <td>{{this.description}}</td>
             </tr>
         {{/each}}
     </tbody>
 </table>
-
-<div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Xóa sản phẩm</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Bạn có chắc muốn xóa sản phẩm này không?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="btn-delete" type="button" class="btn btn-danger">Xóa</button>
-      </div>
-    </div>
-  </div>
-</div>

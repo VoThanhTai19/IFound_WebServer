@@ -10,7 +10,6 @@ const methodOverride = require('method-override')
 const loginRouter = require('./routes/login')
 const productRouter = require('./routes/product')
 const categoryRouter = require('./routes/category')
-const productDetailRouter = require('./routes/product_detail')
 
 //Khai báo các routes api
 const apiUser = require('./api/user');
@@ -29,7 +28,6 @@ app.use(methodOverride('_method'))
 app.use('/login', loginRouter);
 app.use('/products', productRouter);
 app.use('/categories', categoryRouter);
-app.use('/product-detail', productDetailRouter);
 
 //import các routes api
 app.use('/api-user', apiUser);

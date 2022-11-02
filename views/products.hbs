@@ -29,9 +29,12 @@
         <tr> 
             <th scope="col">#</th>
             <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Số lượng</th>
             <th scope="col">Hình ảnh</th>
             <th scope="col">Giá</th>
             <th scope="col">Loại sản phẩm</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Mô tả</th>
             <th scope="col">Action</td>
         </tr>
     </thead>
@@ -40,13 +43,15 @@
             <tr>
                 <th scope="row">{{@index}}</th>
                 <td>{{this.name}}</td>
+                <td>{{this.quantity}}</td>
                 <td>{{this.image}}</td>
                 <td>{{this.price}}</td>
                 <td>{{this.category_id.name}}</td>
+                <td>{{this.status}}</td>
+                <td>{{this.description}}</td>
                 <td>
                     <a href="/products/{{this._id}}/edit" class="btn btn-link">Sửa</a>
                     <a href="#" data-id="{{this._id}}" data-toggle="modal" data-target="#deleteModel" class="btn btn-link">Xóa</a>
-                    <a href="/product-detail/{{this._id}}/detail" class="btn btn-link">Xem chi tiết</a>
                 </td>
             </tr>
         {{/each}}
