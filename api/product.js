@@ -23,7 +23,8 @@ router.get('/:id/products-by-category', async function (req, res, next) {
 
 //Tìm kiếm sản phẩm
 router.post('/product/search', async function (req, res, next) {
-
+    const product = await productController.searchProduct(req.body.name);
+    res.status(200).json(product);
 })
 
 module.exports = router;

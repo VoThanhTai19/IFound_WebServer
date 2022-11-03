@@ -18,7 +18,6 @@ exports.getProductsByCategoryId = async (categoryId) => {
 exports.insert = async (body) => {
     const product = productModel({
         name: body.product_name,
-        quantity: body.product_quantity,
         price: body.product_price,
         image: body.product_image,
         category_id: body.category_id,
@@ -31,7 +30,6 @@ exports.insert = async (body) => {
 exports.update = async (id, body) => {
     await productModel.updateOne(id, {
         name: body.product_name,
-        quantity: body.product_quantity,
         price: body.product_price,
         image: body.product_image,
         category_id: body.category_id,
