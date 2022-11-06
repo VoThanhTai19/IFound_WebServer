@@ -5,12 +5,14 @@ const port = 3000
 const logger = require('morgan')
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
+const Char = require('chart.js/auto')
 
 // Khai báo các routes
 const loginRouter = require('./routes/login')
 const productRouter = require('./routes/product')
 const categoryRouter = require('./routes/category')
 const userRouter = require('./routes/user')
+const statisticalRouter = require('./routes/statistical')
 
 //Khai báo các routes api
 const apiUser = require('./api/user');
@@ -30,7 +32,8 @@ app.use(methodOverride('_method'))
 app.use('/login', loginRouter);
 app.use('/products', productRouter);
 app.use('/categories', categoryRouter);
-app.use('/users', userRouter)
+app.use('/users', userRouter);
+app.use('/statistical', statisticalRouter);
 
 //import các routes api
 app.use('/api-user', apiUser);

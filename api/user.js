@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const userController = require('../components/controllers/UserController')
 
+//Đăng nhập
 router.post('/login', async function(req, res, next) {
     try {
         const user = await userController.login(req.body.email, req.body.password)
@@ -11,6 +12,7 @@ router.post('/login', async function(req, res, next) {
     }
 })
 
+//đăng ký
 router.post('/register', async function(req, res, next) {
     try {
         const user = await userController.register(req.body.name, req.body.email, req.body.password, req.body.confirm_password)
@@ -20,6 +22,7 @@ router.post('/register', async function(req, res, next) {
     }
 })
 
+//đổi mật khẩu
 router.post('/:id/change-password', async function(req, res, next) {
     try {
         const newPassword = await userController.changePassword(
@@ -33,6 +36,7 @@ router.post('/:id/change-password', async function(req, res, next) {
     }
 })
 
+//lấy thông tin profile
 router.get('/:id/profile', async function (req, res) {
     try{
         const profile = await userController.getProfile(req.params.id);
