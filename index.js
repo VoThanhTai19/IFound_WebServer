@@ -10,10 +10,12 @@ const methodOverride = require('method-override')
 const loginRouter = require('./routes/login')
 const productRouter = require('./routes/product')
 const categoryRouter = require('./routes/category')
+const userRouter = require('./routes/user')
 
 //Khai báo các routes api
 const apiUser = require('./api/user');
 const apiProduct = require('./api/product');
+const apiCategory = require('./api/category');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs')
@@ -28,10 +30,12 @@ app.use(methodOverride('_method'))
 app.use('/login', loginRouter);
 app.use('/products', productRouter);
 app.use('/categories', categoryRouter);
+app.use('/users', userRouter)
 
 //import các routes api
 app.use('/api-user', apiUser);
 app.use('/api-product', apiProduct);
+app.use('/api-category', apiCategory)
 
 //Kết nối mongodb
 mongoose.connect('mongodb+srv://admin:tai1892001@cluster0.pflnnvu.mongodb.net/?retryWrites=true&w=majority', {
