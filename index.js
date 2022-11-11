@@ -13,6 +13,8 @@ const productRouter = require('./routes/product')
 const categoryRouter = require('./routes/category')
 const userRouter = require('./routes/user')
 const statisticalRouter = require('./routes/statistical')
+const payMethodRouter = require('./routes/payMethod')
+const orderRouter = require('./routes/order')
 
 //Khai báo các routes api
 const apiUser = require('./api/user');
@@ -34,6 +36,8 @@ app.use('/products', productRouter);
 app.use('/categories', categoryRouter);
 app.use('/users', userRouter);
 app.use('/statistical', statisticalRouter);
+app.use('/pay-method', payMethodRouter)
+app.use('/orders', orderRouter)
 
 //import các routes api
 app.use('/api-user', apiUser);

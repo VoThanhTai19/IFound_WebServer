@@ -6,7 +6,7 @@ const payMethodSchema = new Schema({
     id: {type: ObjectId},
     name: {type: String, required: true},
     description: {type: String}
-}, { timestamps})
+}, { timestamps: true})
 
 module.exports = mongoose.model('payMethod', payMethodSchema)
 

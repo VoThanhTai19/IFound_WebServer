@@ -43,7 +43,13 @@ exports.getProfile = async (id) => {
 }
 
 exports.updateProfile = async (id, body) => {
-
+    await userModel.updateOne(id, {
+        name: body.name,
+        address: body.address,
+        phone: body.phone,
+        birthday: body.birthday,
+        image: body.image
+    });
 }
 
 

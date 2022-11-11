@@ -27,6 +27,7 @@ router.get('/:id/product-detail', async function (req, res, next) {
 //Lấy danh sách sản phẩm theo loại sản phẩm
 router.get('/:id/products-by-category', async function (req, res, next) {
     try{
+        //truyền vào id của category
         const products = await productController.getProductsByCategoryId(req.params.id);
         res.status(200).json(products)
     }catch(err) {
