@@ -30,9 +30,9 @@ router.post('/:id/change-password', async function(req, res, next) {
             req.body.new_password,
             req.body.confirm_new_password
         )
-        res.status(200).json(newPassword)
+        res.json({ status: true, newPassword })
     }catch(err) {
-        res.status(401).json(err)
+        res.json(err)
     }
 })
 
