@@ -5,7 +5,6 @@ const port = 3000
 const logger = require('morgan')
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
-const Char = require('chart.js/auto')
 
 // Khai báo các routes
 const loginRouter = require('./routes/login')
@@ -20,6 +19,7 @@ const orderRouter = require('./routes/order')
 const apiUser = require('./api/user');
 const apiProduct = require('./api/product');
 const apiCategory = require('./api/category');
+const apiReview = require('./api/review');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs')
@@ -43,6 +43,7 @@ app.use('/orders', orderRouter)
 app.use('/api-user', apiUser);
 app.use('/api-product', apiProduct);
 app.use('/api-category', apiCategory)
+app.use('/api-review', apiReview);
 
 //Kết nối mongodb
 mongoose.connect('mongodb+srv://admin:tai1892001@cluster0.pflnnvu.mongodb.net/?retryWrites=true&w=majority', {
