@@ -50,7 +50,7 @@ router.get('/:id/profile', async function (req, res) {
 router.post('/:id/update-profile', async function(req, res) {
     try{
         const profile = await userController.updateProfile({_id: req.params.id}, req.body);
-        res.status(200).json(profile);
+        res.status(200).json({status: true, profile});
     }catch(err){
         res.status(401).json(err)
     }
