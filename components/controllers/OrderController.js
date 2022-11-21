@@ -1,4 +1,39 @@
-const orderModel = require('../models/OrderModel')
+const orderModel = require("../models/OrderModel");
 
+exports.getOrders = async () => {
+  const orders = await orderModel
+    .find()
+    .populate("user_id")
+    .populate("pay_method_id")
+    .populate({ path: "product", populate: { path: "product_id" } });
+  return orders;
+};
 
+exports.getOrder = async (id) => {
+  const order = await orderModel.findById(id);
+  return order;
+};
 
+exports.getOrdersByUser = async (id) => {
+  const orders = await orderModel
+    .find({ user_id: id })
+    .populate("user_id")
+    .populate("pay_method_id")
+    .populate({ path: "product", populate: { path: "product_id" } });
+  return orders;
+};
+
+exports.insert = async (body) => {
+  await orderModel.create({
+    user_id: body.user_id,
+    pay_method_id: body.pay_method_id,
+    product: body.product,
+    total_price: body.total_price,
+  });
+};
+
+exports.update = async (id, body) => {
+  await orderModel.updateOne(id, {
+    status: body.order_status,
+  });
+};

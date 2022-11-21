@@ -1,0 +1,24 @@
+<a class="btn btn-primary mt-4 ml-4" href="/orders" role="button">Quay lại</a>
+<div class="container">
+    <h1>Cập nhật đơn hàng</h1> 
+    <form method="POST" action="/orders/{{order._id}}?_method=PUT">
+        <div class="form-group">
+            <label for="order_status">Trạng thái</label>
+            <input name="order_status" value="{{product.status}}" type="text" class="form-control" id="order_status" placeholder="Trạng thái">
+        </div>
+        <button type="submit" class="mb-4 btn btn-primary">Lưu</button>
+    </form>
+</div>
+{{!-- 
+<script>
+    const onChangeFile = () => {
+        const file = document.getElementById('product_image').files[0];
+        const reader = new FileReader();
+        reader.onload = e => {
+            document.getElementById('image-view').src = e.target.result;
+            document.getElementById('image-view').style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+    }
+</script> --}}
+
