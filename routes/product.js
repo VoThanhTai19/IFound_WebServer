@@ -4,8 +4,14 @@ const router = express.Router();
 //khai báo các controller
 const categoryController = require('../components/controllers/CategoryContoller');
 const productController = require('../components/controllers/ProductController');
+const reviewController = require('../components/controllers/ReviewController');
 
 const upload = require('../middleware/upload')
+
+router.get('/:id/product-review', async (req, res) => {
+    const review = await reviewController.getReviewByProduct(req.params.id);
+    res.render('product_review', { review })
+})
 
 router.get('/insert', async function (req, res, next){
     const categories = await categoryController.getCategories();
@@ -29,8 +35,14 @@ router.get('/:id/edit', async function (req, res, next){
     res.render('product_edit', {product: product, categories: categories});
 })
 
-router.put('/:id', async function (req, res, next) {
-    await productController.update({_id: req.params.id}, req.body)
+router.put('/:id',upload.single('product_image'), async function (req, res, next) {
+    let { body, file } = req;
+    delete body.image;
+    if(file) {
+        image = `http://localhost:3000/images/${file.filename}`;
+        body = {...body, image};
+    }
+    await productController.update({_id: req.params.id}, body)
     res.redirect('/products')
 })
 

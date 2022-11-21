@@ -16,10 +16,11 @@ exports.getProductsByCategoryId = async (categoryId) => {
 }
 
 exports.insert = async (body) => {
+    console.log(body)
     const product = productModel({
         name: body.product_name,
         price: body.product_price,
-        image: body.product_image,
+        image: body.image,
         category_id: body.category_id,
         status: body.product_status,
         description: body.product_desc
@@ -28,10 +29,11 @@ exports.insert = async (body) => {
 }
 
 exports.update = async (id, body) => {
+    console.log(body)
     await productModel.updateOne(id, {
         name: body.product_name,
         price: body.product_price,
-        image: body.product_image,
+        image: body.image,
         category_id: body.category_id,
         status: body.product_status,
         description: body.product_desc

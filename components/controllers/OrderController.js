@@ -29,6 +29,7 @@ exports.insert = async (body) => {
     pay_method_id: body.pay_method_id,
     product: body.product,
     total_price: body.total_price,
+    status: "Đang xử lý",
   });
 };
 

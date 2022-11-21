@@ -43,11 +43,15 @@
             <tr>
                 <th scope="row">{{@index}}</th>
                 <td>{{this.name}}</td>
-                <td>{{this.image}}</td>
+                <td>
+                    <img src="{{this.image}}" width="100" height="100" />
+                </td>
                 <td>{{this.price}}</td>
                 <td>{{this.category_id.name}}</td>
                 <td>{{this.status}}</td>
                 <td>{{this.description}}</td>
+                {{else}}
+                <td>Chưa có sản phẩm</td>
             </tr>
         {{/each}}
     </tbody>

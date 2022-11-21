@@ -14,7 +14,6 @@ router.get('/orders', async (req, res) => {
 router.post('/store', async (req, res, next) => {
     try{
         const order = await orderController.insert(req.body);
-        console.log(res)
         res.status(200).json({status: true, order});
     }catch(err) {
         res.status(401).json(err)

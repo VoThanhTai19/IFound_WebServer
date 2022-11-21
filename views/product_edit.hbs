@@ -1,7 +1,7 @@
 <a class="btn btn-primary mt-4 ml-4" href="/products" role="button">Quay lại</a>
 <div class="container">
     <h1>Cập nhật sản phẩm</h1> 
-    <form method="POST" action="/products/{{product._id}}?_method=PUT">
+    <form method="POST" action="/products/{{product._id}}?_method=PUT" enctype="multipart/form-data">
         <div class="form-group">
             <label for="product_name">Tên sản phẩm</label>
             <input name="product_name" value="{{product.name}}" type="text" class="form-control" id="product_name" placeholder="Nhập tên sản phẩm">

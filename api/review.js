@@ -5,7 +5,6 @@ const reviewController = require('../components/controllers/ReviewController')
 router.post('/store', async (req, res, next) => {
     try{
         const review = await reviewController.insert(req.body);
-        console.log(review)
         res.status(200).json({status: true, review})
     }catch(err) {
         res.status(401).json(err);
