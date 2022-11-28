@@ -8,4 +8,6 @@ router.post('/store', async function(req, res) {
     res.json(payMethod)
 })
 
+
+
 module.exports = router;

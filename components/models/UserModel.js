@@ -9,7 +9,7 @@ const userSchema = new Schema({
     name: {type: String, required: true},
     address: {type: String},
     phone: { type: String},
-    birthday: {type: Date},
+    birthday: {type: String},
     image: {type: String},
 }, {timestamps: true})
 

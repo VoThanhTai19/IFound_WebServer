@@ -30,7 +30,7 @@ router.post('/:id/change-password', async function(req, res, next) {
             req.body.new_password,
             req.body.confirm_new_password
         )
-        res.json({ status: true, newPassword })
+        res.json({ status: true })
     }catch(err) {
         res.json(err)
     }
@@ -50,7 +50,7 @@ router.get('/:id/profile', async function (req, res) {
 router.post('/:id/update-profile', async function(req, res) {
     try{
         const profile = await userController.updateProfile({_id: req.params.id}, req.body);
-        res.status(200).json({status: true, profile});
+        res.status(200).json({status: true});
     }catch(err){
         res.status(401).json(err)
     }

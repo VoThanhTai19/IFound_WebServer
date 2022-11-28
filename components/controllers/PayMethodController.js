@@ -1,7 +1,12 @@
 const payMethodModel = require('../models/PayMethodModel')
 
-exports.getPayMethod = async () => {
+exports.getPayMethods = async () => {
     const payMethod = await payMethodModel.find();
+    return payMethod;
+}
+
+exports.getPayMethod = async (id) => {
+    const payMethod = await payMethodModel.findById(id);
     return payMethod;
 }
 

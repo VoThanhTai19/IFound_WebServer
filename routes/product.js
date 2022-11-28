@@ -22,7 +22,7 @@ router.post('/store', [upload.single('product_image')], async function (req, res
     let { body, file } = req;
     let image = "";
     if(file) {
-        image = `http://localhost:3000/images/${file.filename}`;
+        image = `http://192.168.1.29:3000/images/${file.filename}`;
     }
     body = {...body, image};
     await productController.insert(body);
@@ -39,7 +39,7 @@ router.put('/:id',upload.single('product_image'), async function (req, res, next
     let { body, file } = req;
     delete body.image;
     if(file) {
-        image = `http://localhost:3000/images/${file.filename}`;
+        image = `http://192.168.1.29:3000/images/${file.filename}`;
         body = {...body, image};
     }
     await productController.update({_id: req.params.id}, body)
