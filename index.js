@@ -49,7 +49,7 @@ app.use('/api-product', apiProduct);
 app.use('/api-category', apiCategory)
 app.use('/api-review', apiReview);
 app.use('/api-order', apiOrder);
-app.use('/api-review', apiPayMethod);
+app.use('/api-pay-method', apiPayMethod);
 
 //Kết nối mongodb
 mongoose.connect('mongodb+srv://admin:tai1892001@cluster0.pflnnvu.mongodb.net/?retryWrites=true&w=majority', {

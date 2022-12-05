@@ -13,5 +13,14 @@ router.get('/get-categories', async function (req, res, next) {
     }
 })
 
+router.get('/:id/get-category', async (req, res) => {
+    try {
+        const category = await categoryController.getCategoryById(req.params.id);
+        res.status(200).json(category);
+    }catch(err) {
+        res.status(401).json(err);
+    }
+})
+
 
 module.exports = router;

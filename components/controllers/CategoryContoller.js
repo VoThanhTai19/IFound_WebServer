@@ -11,7 +11,6 @@ exports.getCategoryById = async (id) => {
 }
 
 exports.insert = async (body) => {
-    console.log(body)
     const category = new categoryModel({
         name: body.category,
         description: body.desc
