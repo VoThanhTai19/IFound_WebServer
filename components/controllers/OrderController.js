@@ -38,3 +38,7 @@ exports.update = async (id, body) => {
     status: body.order_status,
   });
 };
+
+exports.delete = async (id) => {
+  await orderModel.deleteOne(id)
+}

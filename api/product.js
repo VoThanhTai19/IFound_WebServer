@@ -19,7 +19,7 @@ router.get('/:id/product-detail', async function (req, res, next) {
         const product = await productController.getProductById(req.params.id)
         res.status(200).json(product)
     }catch(err) {
-        res.status(401).json(err4)
+        res.status(401).json(err)
 
     }
 }) 

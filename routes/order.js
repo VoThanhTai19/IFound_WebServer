@@ -12,6 +12,11 @@ router.put('/:id', async (req, res) => {
     res.redirect('/orders')
 })
 
+router.delete('/:id', async (req, res) => {
+    await orderController.delete({_id: req.params.id});
+    res.redirect('back');
+})
+
 router.get('/', async function(req, res){
     const orders = await orderController.getOrders();
     res.render('orders', { orders })

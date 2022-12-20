@@ -4,7 +4,7 @@
     <form method="POST" action="/orders/{{order._id}}?_method=PUT">
         <div class="form-group">
             <label for="order_status">Trạng thái</label>
-            <input name="order_status" value="{{product.status}}" type="text" class="form-control" id="order_status" placeholder="Trạng thái">
+            <input name="order_status" type="text" class="form-control" id="order_status" placeholder="Trạng thái" value="{{product.order_status}}">
         </div>
         <button type="submit" class="mb-4 btn btn-primary">Lưu</button>
     </form>

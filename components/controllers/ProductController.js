@@ -6,7 +6,7 @@ exports.getProducts = async () => {
 }
 
 exports.getProductById = async (id) => {
-    const product = await productModel.findById(id)
+    const product = await productModel.findById(id).populate('category_id')
     return product;
 }
 
