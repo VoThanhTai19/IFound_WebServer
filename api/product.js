@@ -36,9 +36,9 @@ router.get('/:id/products-by-category', async function (req, res, next) {
 })
 
 //Tìm kiếm sản phẩm
-router.post('/product/search', async function (req, res, next) {
+router.get('/product/search', async function (req, res, next) {
     try{
-        const product = await productController.searchProduct(req.body.name);
+        const product = await productController.searchProduct(req.query.key);
         res.status(200).json(product);
     }catch(err) {
         res.status(401).json(err);

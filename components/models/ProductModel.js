@@ -8,7 +8,7 @@ const productSchema = new Schema({
     price: { type: Number},
     image: { type: String },
     category_id: { type: Schema.Types.ObjectId, ref: 'category'},
-    status: {type: String},
+    status: {type: Schema.Types.ObjectId, ref: 'productStatus'},
     description: {type: String},
 }, { timestamps: true })
 

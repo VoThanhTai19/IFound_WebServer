@@ -6,14 +6,9 @@ const orderSchema = new Schema({
     id: { type: ObjectId},
     user_id: {type: Schema.Types.ObjectId, ref: 'user'},
     pay_method_id: {type: Schema.Types.ObjectId, ref: 'payMethod'},
-    product: [{
-        id: {type: ObjectId},
-        product_id: {type: Schema.Types.ObjectId, ref: 'product'},
-        quantity: {type: Number},
-        price: {type: Number},
-    }],
+    cart_id: { type: Schema.Types.ObjectId, ref: 'cart'},
     total_price: {type: Number},
-    status: {type: String}
+    status: {type: Schema.Types.ObjectId, ref: 'orderStatus'}
 }, { timestamps:true })
 
 module.exports = mongoose.model('order', orderSchema);

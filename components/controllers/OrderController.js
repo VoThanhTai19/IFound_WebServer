@@ -5,7 +5,8 @@ exports.getOrders = async () => {
     .find()
     .populate("user_id")
     .populate("pay_method_id")
-    .populate({ path: "product", populate: { path: "product_id" } });
+    .populate({path: "cart_id", populate: {path: "product", populate: {path: "product_id"}}})
+    .populate("status")
   return orders;
 };
 
@@ -19,7 +20,8 @@ exports.getOrdersByUser = async (id) => {
     .find({ user_id: id })
     .populate("user_id")
     .populate("pay_method_id")
-    .populate({ path: "product", populate: { path: "product_id" } });
+    .populate({path: "cart_id", populate: {path: "product", populate: {path: "product_id"}}})
+    .populate("status")
   return orders;
 };
 
@@ -27,15 +29,15 @@ exports.insert = async (body) => {
   await orderModel.create({
     user_id: body.user_id,
     pay_method_id: body.pay_method_id,
-    product: body.product,
+    cart_id: body.cart_id,
     total_price: body.total_price,
-    status: "Đang xử lý",
+    status: body.orderStatus_id,
   });
 };
 
 exports.update = async (id, body) => {
   await orderModel.updateOne(id, {
-    status: body.order_status,
+    status: body.orderStatus_id,
   });
 };
 

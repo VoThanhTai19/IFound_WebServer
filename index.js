@@ -23,6 +23,7 @@ const apiCategory = require('./api/category');
 const apiReview = require('./api/review');
 const apiOrder = require('./api/order');
 const apiPayMethod = require('./api/payMethod')
+const apiCart = require('./api/cart');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs')
@@ -50,6 +51,7 @@ app.use('/api-category', apiCategory)
 app.use('/api-review', apiReview);
 app.use('/api-order', apiOrder);
 app.use('/api-pay-method', apiPayMethod);
+app.use('/api-cart/', apiCart);
 
 //Kết nối mongodb
 mongoose.connect('mongodb+srv://admin:tai1892001@cluster0.pflnnvu.mongodb.net/?retryWrites=true&w=majority', {

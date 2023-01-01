@@ -2,9 +2,10 @@ const express = require('express')
 const router = express.Router();
 
 //khai báo các controller
-const categoryController = require('../components/controllers/CategoryContoller');
+const categoryController = require('../components/controllers/CategoryController');
 const productController = require('../components/controllers/ProductController');
 const reviewController = require('../components/controllers/ReviewController');
+const productStatusController = require('../components/controllers/ProductStatusController')
 
 const upload = require('../middleware/upload')
 
@@ -15,7 +16,13 @@ router.get('/:id/product-review', async (req, res) => {
 
 router.get('/insert', async function (req, res, next){
     const categories = await categoryController.getCategories();
-    res.render('product_insert', {category: categories})
+    const productStatus = await productStatusController.getProductStatus()
+    res.render('product_insert', {category: categories, productStatus: productStatus})
+})
+
+router.post('/product-status-store', async (req, res) => {
+    const productStatus = await productStatusController.insert(req.body)
+    res.json(productStatus)
 })
 
 router.post('/store', [upload.single('product_image')], async function (req, res, next){
@@ -32,7 +39,8 @@ router.post('/store', [upload.single('product_image')], async function (req, res
 router.get('/:id/edit', async function (req, res, next){
     const product = await productController.getProductById(req.params.id)
     const categories = await categoryController.getCategories();
-    res.render('product_edit', {product: product, categories: categories});
+    const productStatus = await productStatusController.getProductStatus()
+    res.render('product_edit', {product: product, categories: categories, productStatus: productStatus});
 })
 
 router.put('/:id',upload.single('product_image'), async function (req, res, next) {

@@ -1,10 +1,17 @@
 const express = require('express')
 const router = express.Router()
 const orderController = require('../components/controllers/OrderController');
+const orderStatusController = require('../components/controllers/OrderStatusController')
+
+router.post('/order-status-store', async(req, res) => {
+    const orderStatus = await orderStatusController.insert(req.body);
+    res.json(orderStatus)
+})
 
 router.get('/:id/edit', async (req, res) => {
     const order = await orderController.getOrder(req.params.id);
-    res.render('order_edit', { order })
+    const orderStatus = await orderStatusController.getOrderStatus()
+    res.render('order_edit', { order, orderStatus })
 })
 
 router.put('/:id', async (req, res) => {

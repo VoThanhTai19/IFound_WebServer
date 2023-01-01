@@ -39,12 +39,12 @@
         </tr>
     </thead>
     <tbody>
-       {{#each orders}}
+        {{#each orders}}
         <tr>
           <th scope="row">{{@index}}</th>
           <td>{{this.user_id.name}} - {{this.user_id.email}}</td>
           <td>
-            {{#each this.product}}
+            {{#each this.cart_id.product}}
               <div>
                 <span class="mr-2">{{this.product_id.name}}</span>
                 <img src="{{this.product_id.image}}" alt="" width="50" height="50" class="mt-2 mr-2">
@@ -54,10 +54,10 @@
           </td>
           <td>{{this.pay_method_id.name}}</td>
           <td>{{this.total_price}}</td>
-          <td>{{this.status}}</td>
+          <td>{{this.status.name}}</td>
           <td>
             <a href="/{{this._id}}" data-id="{{this._id}}" data-toggle="modal" data-target="#deleteModel" class="btn btn-link">Xóa</a>
-            <a href="/orders/{{this._id}}/edit" class="btn btn-link">Xem chi tiết</a>
+            <a href="/orders/{{this._id}}/edit" class="btn btn-link">Cập nhật</a>
           </td>
           {{else}}
           <td>Chưa có đơn hàng</td>

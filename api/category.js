@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const categoryController = require('../components/controllers/CategoryContoller')
+const categoryController = require('../components/controllers/CategoryController')
 
 //lấy danh sách loại sản phẩm
 router.get('/get-categories', async function (req, res, next) {
